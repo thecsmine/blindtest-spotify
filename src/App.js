@@ -1,13 +1,13 @@
 /*global swal*/
 
-import React from 'react';
-import logo from './logo.svg';
-import loading from './loading.svg';
-import './App.css';
-import Sound from 'react-sound';
-import Button from './Button';
+import React from "react";
+import logo from "./logo.svg";
+import loading from "./loading.svg";
+import "./App.css";
+import Sound from "react-sound";
+import Button from "./Button";
 
-const apiToken = '<<Copiez le token de Spotify ici>>';
+const apiToken = "<<Copiez le token de Spotify ici>>";
 
 function shuffleArray(array) {
   let counter = array.length;
@@ -32,16 +32,15 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
+        <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">Bienvenue sur le Blindtest</h1>
       </header>
       <div className="App-images">
-        <p>Il va falloir modifier le code pour faire un vrai Blindtest !</p>
+        <p>Il va falloir modifier le code pour faire un vrai Blindtest ! AAA</p>
       </div>
-      <div className="App-buttons">
-      </div>
+      <div className="App-buttons"></div>
     </div>
   );
-}
+};
 
 export default App;
