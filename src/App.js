@@ -59,7 +59,7 @@ const App = () => {
         confirmButtonText: "Continue playing",
         confirmButtonColor: "#33cc33",
       }).then(() => {
-        shuffle();
+        setTracks(shuffleArray([...tracks]));
       });
     } else {
       Swal.fire({
@@ -70,10 +70,6 @@ const App = () => {
         confirmButtonColor: "#cc3333",
       });
     }
-  };
-
-  const shuffle = () => {
-    setTracks(shuffleArray([...tracks]));
   };
 
   const currentTrack = React.useMemo(() => {
