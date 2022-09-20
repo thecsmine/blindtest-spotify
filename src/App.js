@@ -33,6 +33,7 @@ function getRandomNumber(x) {
 
 const App = () => {
   const [tracks, setTracks] = React.useState([]);
+  const [invalidAPI, setInvalidAPI] = React.useState(false);
   const [songsLoaded, setSongsLoaded] = React.useState(false);
 
   React.useEffect(() => {
@@ -44,6 +45,10 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        if ("error" in data) {
+          setInvalidAPI(true);
+          return;
+        }
         console.log("Réponse reçue ! Voilà ce que j'ai reçu : ", data);
         setSongsLoaded(true);
         setTracks(shuffleArray(data.items));
@@ -84,10 +89,12 @@ const App = () => {
         <h1 className="App-title">Bienvenue sur le Blindtest</h1>
       </header>
       <div className="App-images">
-        {!songsLoaded ? (
-          <img src={loading} className="loading" alt="loading" />
-        ) : (
+        {songsLoaded ? (
           <AlbumCover track={currentTrack} />
+        ) : invalidAPI ? (
+          <p>API Token is invalid.</p>
+        ) : (
+          <img src={loading} className="loading" alt="loading" />
         )}
       </div>
       <div className="App-buttons">
